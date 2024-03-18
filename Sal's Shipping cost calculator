@@ -1,0 +1,63 @@
+weightinput = input("How heavy is your package? : )
+
+weight = float(weightinput)
+
+#ground shipping
+groundp = 0.00
+
+if weight <= 2.0:
+  groundp = (weight * 1.5) + 20.00
+elif weight > 2.0 and weight <= 6:
+  groundp = (weight * 3) + 20.00
+elif weight > 6 and weight <= 10:
+  groundp = (weight * 4) + 20.00
+else:
+  groundp = (weight * 4.75) + 20.00
+
+formatted_groundp = "{:.2f}".format(groundp)  # 2 decimal
+
+print("Ground Price: $" + formatted_groundp)  # 2 decimal 
+
+
+#premium ground shipping
+groundpremp = 125
+
+formatted_groundpremp = "{:.2f}".format(groundpremp)
+
+print("Ground Premium Price: $" + formatted_groundpremp)
+
+
+#drone price
+dronep = 0
+
+if weight <= 2:
+  dronep = (weight * 4.5)
+elif weight <= 6:
+  dronep = (weight * 9)
+elif weight <= 10:
+  dronep = (weight * 12)
+else:
+  dronep = (weight * 14.25)
+
+formatted_dronep = "{:.2f}".format(dronep)
+
+print("Drone Price : $" + formatted_dronep)
+
+#cheapest price
+cheapestp = [groundp, groundpremp, dronep]
+cheapest_price = ""
+cheapest_price = min(cheapestp)
+
+cheapest_price_formatted = "{:.2f}".format(cheapest_price)
+
+shipping_methods = {
+    "Ground": groundp,
+    "Ground Premium": groundpremp,
+    "Drone": dronep
+}
+
+cheapest_method = min(shipping_methods, key=shipping_methods.get)
+
+print("The cheapest option is: {} shipping for ${}".format(cheapest_method, cheapest_price_formatted))
+
+
