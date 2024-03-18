@@ -1,3 +1,5 @@
+#Sal's Shipping Cost Calculator
+
 weightinput = input("How heavy is your package? : )
 
 weight = float(weightinput)
